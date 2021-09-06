@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_06_084631) do
+ActiveRecord::Schema.define(version: 2021_09_06_115007) do
 
   create_table "properties", force: :cascade do |t|
-    t.string "property"
+    t.string "name"
     t.integer "rent"
     t.integer "building_age"
     t.text "address"
@@ -22,4 +22,15 @@ ActiveRecord::Schema.define(version: 2021_09_06_084631) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "railways", force: :cascade do |t|
+    t.string "name"
+    t.string "station"
+    t.integer "minutes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "property_id"
+    t.index ["property_id"], name: "index_railways_on_property_id"
+  end
+
+  add_foreign_key "railways", "properties"
 end
