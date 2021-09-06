@@ -26,9 +26,9 @@
   <%= @property.remarks %>
 </p>
 <hr/>
-
-<% @property.railways.each do  |railway|%>
-  <h1>Nearest Station</h1>
+<h1>Stations <%=@property.railways.count %></h1>
+<% @property.railways.each_with_index do  |railway,index|%>
+  <h1>Nearest Station <%= index + 1 %></h1>
   <p>
     <strong> Name of railway</strong>
     <%= railway.name %>

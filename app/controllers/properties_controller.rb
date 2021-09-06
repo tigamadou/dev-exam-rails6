@@ -14,6 +14,7 @@ class PropertiesController < ApplicationController
   end
 
   def edit
+    @property.railways.build 
   end
 
   def create
