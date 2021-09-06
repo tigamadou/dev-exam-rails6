@@ -2,7 +2,7 @@
 
 <p>
   <strong>Property:</strong>
-  <%= @property.property %>
+  <%= @property.name %>
 </p>
 
 <p>
@@ -11,19 +11,38 @@
 </p>
 
 <p>
-  <strong>Building age:</strong>
-  <%= @property.building_age %>
-</p>
-
-<p>
   <strong>Address:</strong>
   <%= @property.address %>
 </p>
 
 <p>
+  <strong>Building age:</strong>
+  <%= @property.building_age %>
+</p>
+
+
+<p>
   <strong>Remarks:</strong>
   <%= @property.remarks %>
 </p>
+<hr/>
 
+<% @property.railways.each do  |railway|%>
+  <h1>Nearest Station</h1>
+  <p>
+    <strong> Name of railway</strong>
+    <%= railway.name %>
+  </p>
+
+  <p>
+    <strong> Station name</strong>
+    <%= railway.station %>
+  </p>
+
+  <p>
+    <strong> How many minutes walk</strong>
+    <%= railway.name %>
+  </p>
+<% end %>
 <%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', properties_path %>
