@@ -10,6 +10,7 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
+    3.times { @property.railways.build }
   end
 
   def edit

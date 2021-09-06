@@ -1,4 +1,10 @@
 <%= form_with(model: property, local: true) do |form| %>
+  
+
+ 
+<% end %>
+
+<%= simple_form_for(property) do |form| %>
   <% if property.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
@@ -10,10 +16,9 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+   <div class="field">
     <%= form.label :property %>
-    <%= form.text_field :property %>
+    <%= form.text_field :name %>
   </div>
 
   <div class="field">
@@ -35,6 +40,27 @@
     <%= form.label :remarks %>
     <%= form.text_area :remarks %>
   </div>
+<hr>
+  
+
+  <%= form.simple_fields_for(:railways) do |railway_form| %>
+  <h1>Name of the railway line</h1>
+    <div class="field">
+      <%= railway_form.label :name, label: 'Name of railway line' %>
+      <%= railway_form.number_field :name %>
+    </div>
+
+    <div class="field">
+      <%= railway_form.label :station, label: 'Station name' %>
+      <%= railway_form.number_field :station %>
+    </div>
+
+    <div class="field">
+      <%= railway_form.label :station, label: 'How many minutes walk' %>
+      <%= railway_form.number_field :minutes %>
+    </div>
+
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>
